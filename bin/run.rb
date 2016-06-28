@@ -58,8 +58,24 @@ loop do
     # return an appropriate response
 
     # YOUR CODE GOES BELOW HERE
+<<<<<<< Updated upstream
 
     puts @request.inspect
+=======
+    # def print_all_users(all_users, id)
+    #   all_users[id.to_ - 1]
+    # end
+
+    if @request == url.nil? || url.length.zero?
+      raise "No input given"
+    else
+    users[0..5] = [{first_name => Ahkeem, lang_name => Lang, age => 23},
+      {first_name => Matt, last_name => Saz, age => 22},
+      {first_name => Lexis, last_name => Corona, age => 24},
+      {first_name => Paul, last_name => Varsco, age => 38},
+      {first_name => Melissa, last_name => Soul, age => 55}]
+    end
+>>>>>>> Stashed changes
     # YOUR CODE GOES ABOVE HERE  ^
   end
 end
