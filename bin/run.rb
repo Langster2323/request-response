@@ -58,10 +58,7 @@ loop do
     # return an appropriate response
 
     # YOUR CODE GOES BELOW HERE
-<<<<<<< Updated upstream
-
     puts @request.inspect
-=======
     # def print_all_users(all_users, id)
     #   all_users[id.to_ - 1]
     # end
@@ -75,7 +72,6 @@ loop do
       {first_name => Paul, last_name => Varsco, age => 38},
       {first_name => Melissa, last_name => Soul, age => 55}]
     end
->>>>>>> Stashed changes
     # YOUR CODE GOES ABOVE HERE  ^
   end
 end
