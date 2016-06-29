@@ -60,11 +60,18 @@ loop do
     # YOUR CODE GOES BELOW HERE
     puts @request.inspect
 
-    users[0..5] = [{first_name => Ahkeem, lang_name => Lang, age => 23},
+
+
+    users = [{first_name => Ahkeem, lang_name => Lang, age => 23},
       {first_name => Matt, last_name => Saz, age => 22},
       {first_name => Lexis, last_name => Corona, age => 24},
       {first_name => Paul, last_name => Varsco, age => 38},
       {first_name => Melissa, last_name => Soul, age => 55}]
+
+
+      if users.each_index do {|x| print x, ""}
+      end
+      end
 
     # YOUR CODE GOES ABOVE HERE  ^
   end
