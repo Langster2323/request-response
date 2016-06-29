@@ -68,7 +68,13 @@ loop do
       {:first_name => "Paul", :last_name => "Varsco", :age => "38"},
       {:first_name => "Melissa", :last_name => "Soul", :age => "55"}]
 
-
+      if "users" == users
+        users.each.with_index do |user, index|
+          print  :params=>{:resource=>"users", :id=>nil, :action=>nil}
+        end
+      elsif
+        print  :params=>{:resource=>"users", :id=>nil, :action=>nil}
+      end
     # YOUR CODE GOES ABOVE HERE  ^
   end
 end
