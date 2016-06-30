@@ -49,25 +49,13 @@ loop do
   when 'q' then puts "Goodbye!"; exit
   when 'h'
     puts "A valid HTTP Request looks like:"
-    puts "\t'GET http://localhost:3000/students HTTP/1.1'"
+    puts "\t'GET http://localhost:3000/users HTTP/1.1'"
     puts "Read more at : http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html"
   else
     @request = parse(raw_request)
     @params  = @request[:params]
     # Use the @request and @params ivars to full the request and
     # return an appropriate response
-
-    # YOUR CODE GOES BELOW HERE
-    puts @request.inspect
-    class Users
-      attr_reader :first_name, :last_name, :age
-      def initialize(first_name, last_name, age)
-        @first_name = first_name
-        @last_name = last_name
-        @age = age
-      end
-
-
     users = [{:first_name => "Ahkeem", :last_name => "Lang", :age => "23"},
       {:first_name => "Matt", :last_name => "Saz", :age => "22"},
       {:first_name => "Lexis", :last_name => "Corona", :age => "24"},
@@ -75,8 +63,31 @@ loop do
       {:first_name => "Melissa", :last_name => "Soul", :age => "55"}]
 
 
+    if @params[:id]
+      if users.count < @params[:id].to_i
+        puts "Not a valid input"
+      else
+        puts users[@params[:id].to_i - 1]
+      end
 
+    elsif @params.has_value?("users")
+      puts users
+
+      # puts users[@params[:id][1..5]]
     end
+  end
+end
+    # YOUR CODE GOES BELOW HERE
+    puts @request.inspect
+    class User
+      attr_reader :first_name, :last_name, :age
+      def initialize(first_name, last_name, age)
+        @first_name = first_name
+        @last_name = last_name
+        @age = age
+      end
+    end
+
 
 
 
