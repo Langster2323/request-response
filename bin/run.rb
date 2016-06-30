@@ -56,11 +56,11 @@ loop do
     @params  = @request[:params]
     # Use the @request and @params ivars to full the request and
     # return an appropriate response
-    users = [{:first_name => "Ahkeem", :last_name => "Lang", :age => "23"},
-      {:first_name => "Matt", :last_name => "Saz", :age => "22"},
-      {:first_name => "Lexis", :last_name => "Corona", :age => "24"},
-      {:first_name => "Paul", :last_name => "Varsco", :age => "38"},
-      {:first_name => "Melissa", :last_name => "Soul", :age => "55"}]
+    users = [{first_name: "Ahkeem", last_name: "Lang", age: "23"},
+      {first_name: "Matt", last_name: "Saz", age: "22"},
+      {first_name: "Lexis", last_name: "Corona", age: "24"},
+      {first_name: "Paul", last_name: "Varsco", age: "38"},
+      {first_name: "Melissa", last_name: "Soul", age: "55"}]
 
 
     if @params[:id]
