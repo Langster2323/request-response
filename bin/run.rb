@@ -59,7 +59,13 @@ loop do
 
     # YOUR CODE GOES BELOW HERE
     puts @request.inspect
-
+    class Users
+      attr_reader :first_name, :last_name, :age
+      def initialize(first_name, last_name, age)
+        @first_name = first_name
+        @last_name = last_name
+        @age = age
+      end
 
 
     users = [{:first_name => "Ahkeem", :last_name => "Lang", :age => "23"},
@@ -68,13 +74,19 @@ loop do
       {:first_name => "Paul", :last_name => "Varsco", :age => "38"},
       {:first_name => "Melissa", :last_name => "Soul", :age => "55"}]
 
-      if "users" == users
-        users.each.with_index do |user, index|
-          print  :params=>{:resource=>"users", :id=>nil, :action=>nil}
-        end
-      elsif
-        print  :params=>{:resource=>"users", :id=>nil, :action=>nil}
-      end
-    # YOUR CODE GOES ABOVE HERE  ^
-  end
-end
+
+
+    end
+
+
+
+#       if "users" == users
+#         users.each.with_index do |user, index|
+#           print  :params=>{:resource=>"users", :id=>nil, :action=>nil}
+#         end
+#       elsif
+#         print  :params=>{:resource=>"users", :id=>nil, :action=>nil}
+#       end
+#     # YOUR CODE GOES ABOVE HERE  ^
+#   end
+# end
