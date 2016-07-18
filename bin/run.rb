@@ -56,11 +56,6 @@ loop do
     @params  = @request[:params]
     # Use the @request and @params ivars to full the request and
     # return an appropriate response
-    users = [{first_name: "Ahkeem", last_name: "Lang", age: "23"},
-      {first_name: "Matt", last_name: "Saz", age: "22"},
-      {first_name: "Lexis", last_name: "Corona", age: "24"},
-      {first_name: "Paul", last_name: "Varsco", age: "38"},
-      {first_name: "Melissa", last_name: "Soul", age: "55"}]
 
 
     if @params[:id]
@@ -72,8 +67,6 @@ loop do
 
     elsif @params.has_value?("users")
       puts users
-
-      # puts users[@params[:id][1..5]]
     end
   end
 end
@@ -88,16 +81,62 @@ end
       end
     end
 
+OK = "200 OK"
+NOT_FOUND = "404 NOT FOUND"
+
+def response_ok
+  puts OK
+end
 
 
+if url.nil? || url.length.zero?
+  raise "No input given"
+else
+users = [{first_name: "Ahkeem", last_name: "Lang", age: "23"},
+  {first_name: "Matt", last_name: "Saz", age: "22"},
+  {first_name: "Lexis", last_name: "Corona", age: "24"},
+  {first_name: "Paul", last_name: "Varsco", age: "38"},
+  {first_name: "Melissa", last_name: "Soul", age: "55"}]
+  begin
+    response = parser.parse(url)
+    if response[:resource] == "random"
+      response_body = users.sample
 
-#       if "users" == users
-#         users.each.with_index do |user, index|
-#           print  :params=>{:resource=>"users", :id=>nil, :action=>nil}
-#         end
-#       elsif
-#         print  :params=>{:resource=>"users", :id=>nil, :action=>nil}
-#       end
-#     # YOUR CODE GOES ABOVE HERE  ^
-#   end
-# end
+      response_ok
+      puts response_body
+
+    elsif response[:resource] == "users"
+      if response[:id]
+
+        if response[:action] == "upcase"
+          response_body = get_user(users, response[:id]).upcase
+        elsif response[:action].nil?
+          response_body = get_user(users, response[:id])
+        end
+
+        response_ok
+        puts response_body
+      else
+        response_ok
+        users.each.with_index do |user, index|
+          puts "#{index + 1} - #{user}"
+        end
+      end
+    else
+      puts NOT_FOUND
+    end
+  end
+end
+
+      # I can't recall what I was trying to here. I wish I used the README which
+      #was required of me to use.
+      # if "users" == users
+      #   users.each.with_index do |user, index|
+      #     print  :params=>{:resource=>users, :id=>nil, :action=>nil}
+      #   end
+      # elsif
+      #   print  :params=>{:resource=>users, :id=>nil, :action=>nil}
+      # else
+      #   NOT_FOUND
+      # end
+    # YOUR CODE GOES ABOVE HERE  ^
